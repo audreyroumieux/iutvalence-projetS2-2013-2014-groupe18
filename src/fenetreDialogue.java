@@ -1,5 +1,5 @@
 
-public class fenetreDialogue extends Fenetre
+public class fenetreDialogue
 {
 
 	public fenetreDialogue() {
