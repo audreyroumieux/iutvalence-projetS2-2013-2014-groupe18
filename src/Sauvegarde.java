@@ -1,5 +1,13 @@
+/**
+ * objet unique permetent de sauvgarder les choix passer du joueur 
+ * @author roumieau
+ *
+ */
 public class Sauvegarde
 {
+	/**
+	 * 
+	 */
 	private static Sauvegarde singletonSauvegarde;
 
 	private Sauvegarde()
@@ -7,6 +15,7 @@ public class Sauvegarde
 
 	}
 
+	// retourne la sauvgarde existante et peut creer une sauvgarde s'il y en a pas deja une
 	public static Sauvegarde GetSauvegarde()
 	{
 		if (singletonSauvegarde == null)

@@ -1,11 +1,24 @@
 
-public class fenetreDecors
+/**
+ * fenetre ou s'affiche le decors. on peut changer de decors en cliquent sur le portes 
+ * et ainsi voir les supects sur les quel on peut cliquer pour discuter avec eux
+ * @author roumieau
+ *
+ */
+public class FenetreDecors
 {
 
 	
-	public fenetreDecors() {
+	public FenetreDecors() {
 		// TODO Auto-generated constructor stub
+		
 	}
+	
+	/**
+	 * choix du suspect comme assassin 
+	 * @param personne
+	 * @return texte de reussite ou de perte
+	 */
 	public String choisirSuspect(Personnages personne)
 	{
 		if (personne.coupable == true)
