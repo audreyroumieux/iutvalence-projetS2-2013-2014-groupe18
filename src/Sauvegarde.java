@@ -24,8 +24,10 @@ public class Sauvegarde
 		}
 		return singletonSauvegarde;
 	}
-
+/**
+ * initialisation des attributs a: false, car le joueur n'a pas encore discuter avec des personnages 
+ */
 	public boolean aParlerAalfred = false;
-	public  boolean aParlerAuPerso2 = false;;
+	public  boolean aParlerAbernadette = false;;
 
 }
