@@ -1,7 +1,6 @@
 /**
  * main permetant de lancer le jeu
  * @author roumieau
- *
  */
 public class Application
 {

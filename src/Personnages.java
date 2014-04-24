@@ -2,7 +2,6 @@
 /**
  * represente un suspect
  * @author roumieau
- *
  */
 public class Personnages {
 

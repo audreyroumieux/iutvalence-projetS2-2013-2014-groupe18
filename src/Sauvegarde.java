@@ -1,7 +1,6 @@
 /**
  * objet unique permetent de sauvgarder les choix passer du joueur 
  * @author roumieau
- *
  */
 public class Sauvegarde
 {

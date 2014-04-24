@@ -3,7 +3,6 @@
  * fenetre ou s'affiche le decors. on peut changer de decors en cliquent sur le portes 
  * et ainsi voir les supects sur les quel on peut cliquer pour discuter avec eux
  * @author roumieau
- *
  */
 public class FenetreDecors
 {
@@ -22,7 +21,7 @@ public class FenetreDecors
 	public String choisirSuspect(Personnages personne)
 	{
 		if (personne.coupable == true)
-			return "Felisitation vous avezgagner";
+			return "Felicitation vous avez gagné(e)!";
 		return "ce n'est pas lui, essaye encore!";
 	}
 
