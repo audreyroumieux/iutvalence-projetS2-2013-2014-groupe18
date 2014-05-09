@@ -1,9 +1,11 @@
+import javax.swing.JButton;
+
 
 /**
  * represente un suspect
  * @author roumieau
  */
-public class Personnages {
+public class Personnages extends JButton{
 
 	/**
 	 * nom, identifant du personnage
@@ -24,6 +26,7 @@ public class Personnages {
 	//constructeur
 	public Personnages (String nom, String caracteristique, boolean coupable)
 	{
+		super(nom);
 		this.nom=nom;
 		this.caracteristique= caracteristique;
 		this.coupable=coupable;
