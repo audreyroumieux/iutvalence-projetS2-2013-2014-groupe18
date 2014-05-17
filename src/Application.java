@@ -7,11 +7,13 @@ import javax.swing.JOptionPane;
  */
 public class Application
 {
-	public static void main(String[] args)
-	{
+	/** main du jeu
+	 * @param args
+	 */
+	public static void main(String[] args){
 		// demande du nom du joueur:
 		String nomDeDetective = (String)JOptionPane.showInputDialog(null,
-        "Quel est votre nom ?\n"                   ,
+        "Quel est votre nom ?\n",
         "Entrez votre nom",
         JOptionPane.PLAIN_MESSAGE,
         null,
@@ -38,5 +40,4 @@ public class Application
 		FenetreDecors fenetreDecor= new FenetreDecors(salleAmanger);
 		
 	}
-	
 }

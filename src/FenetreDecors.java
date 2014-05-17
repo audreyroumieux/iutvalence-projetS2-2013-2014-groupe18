@@ -1,5 +1,6 @@
-import java.awt.GridLayout;
 
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -10,12 +11,10 @@ import javax.swing.JFrame;
 public class FenetreDecors extends JFrame
 {
 	private Decors decor;
-	/**
-	 * 
+	/** constructeur de fenetreDecor
 	 * @param decor
 	 */
 	public FenetreDecors(Decors decor) {
-		
 		this.decor=decor;
 		setSize(800, 600);//taille de la fenetre en px
 		this.AfficherDecor(decor);
@@ -23,7 +22,7 @@ public class FenetreDecors extends JFrame
 	}
 	
 	/**
-	 * 
+	 * affiche le decor dans fenetre decor
 	 * @param decor
 	 */
 	public void AfficherDecor(Decors decor){
@@ -35,33 +34,35 @@ public class FenetreDecors extends JFrame
 		{
 			AfficherPorte(portes);
 		}
-		for(Personnages personnages : decor.ListeDePersonnages)
-		{
+		for(Personnages personnages : decor.ListeDePersonnages){
 			AfficherPersonnage(personnages);
 		}
 	}
+	
 	/**
-	 * 
+	 * affiche la porte et l'image de la porte
+	 * l'image ne marche pas
 	 * @param porte
 	 */
 	public void AfficherPorte(Portes porte){
-		getContentPane().add(porte);
+		getContentPane().add(porte, new ImageIcon("Image/porte.png"));
 	}
 	
+	/**
+	 * affiche le personnage du decor ou il est appeler
+	 * @param personnage
+	 */
 	public void AfficherPersonnage(Personnages personnage){
 		getContentPane().add(personnage);
 	}
 	
-	/**
-	 * choix du suspect comme assassin 
+	/** choix du suspect comme assassin 
 	 * @param personne
 	 * @return texte de reussite ou de perte
 	 */
-	public String choisirSuspect(Personnages personne)
-	{
+	public String choisirSuspect(Personnages personne){
 		if (personne.coupable == true)
 			return "Felicitation vous avez gagné(e)!";
 		return "ce n'est pas lui, essaye encore!";
 	}
-
 }

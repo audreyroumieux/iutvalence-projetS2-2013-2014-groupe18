@@ -1,5 +1,5 @@
+import java.util.List;
 import javax.swing.JButton;
-
 
 /**
  * represente un suspect
@@ -21,6 +21,9 @@ public class Personnages extends JButton{
 	 */
 	public final boolean coupable;
 	
+	public List<Phrase> ListePhrasesTotal;
+	public List<Phrase> ListePhrasesPosable;
+	
 		
 	
 	//constructeur
@@ -32,4 +35,14 @@ public class Personnages extends JButton{
 		this.coupable=coupable;
 	}
 	
+	/**
+	 * 
+	 * on  modifie les phrase possible grace au tableau de sauvgarde ou d'enregistrement 
+	 * 
+	 */
+	private void ModifPhrasePossible(Personnages perso, Phrase question){
+		
+		if(phrase )//si la phrases est dans le tab de l'historique
+			listeDePhrasePossible = listeDePhrasePossible + question;
+	}
 }
