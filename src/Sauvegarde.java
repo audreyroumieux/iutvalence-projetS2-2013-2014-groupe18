@@ -7,7 +7,7 @@ public class Sauvegarde
 	/**
 	 * 
 	 */
-	private static Sauvegarde singletonSauvegarde;
+	private static Sauvegarde singletonSauvegarde; //il n'y a qu'une seul sauvgarde dans ce jeu.
 
 	private Sauvegarde()
 	{

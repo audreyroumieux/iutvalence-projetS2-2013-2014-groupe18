@@ -32,12 +32,13 @@ public class Application
 		Personnages robert = new Personnages( "Robert", "Ami et medecin du compte" ,false);
 		
 	//creation d'un decors ou il y a alfred, ne peut etre changer
-		Decors salleAmanger = new Decors(Arrays.asList(alfred));
-		Decors chambre = new Decors(Arrays.asList(bernadette));
+		Decors salleAmanger = new Decors(Arrays.asList(alfred), "Salle a Manger");
+		Decors chambre = new Decors(Arrays.asList(bernadette), "Chambre");
 		salleAmanger.AjouterPortesVers(chambre);
 		
 	//creation de la fenetre decors dans la salleAmanger
 		FenetreDecors fenetreDecor= new FenetreDecors(salleAmanger);
+		 
 		
 	}
 }

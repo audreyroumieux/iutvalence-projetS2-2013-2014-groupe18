@@ -18,6 +18,8 @@ public class FenetreDecors extends JFrame
 		this.decor=decor;
 		setSize(800, 600);//taille de la fenetre en px
 		this.AfficherDecor(decor);
+		this.setTitle(decor.NomPiece);// rajoute le nom de la salle ou l'on est dans la barre de titre
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);//ferme le jeu lors de l'appuis sur la croix rouge
 		setVisible(true);
 	}
 	
@@ -45,7 +47,7 @@ public class FenetreDecors extends JFrame
 	 * @param porte
 	 */
 	public void AfficherPorte(Portes porte){
-		getContentPane().add(porte, new ImageIcon("Image/porte.png"));
+		getContentPane().add(porte);
 	}
 	
 	/**

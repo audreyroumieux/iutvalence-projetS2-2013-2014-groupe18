@@ -10,15 +10,17 @@ public class Decors
 {
 	public List<Personnages> ListeDePersonnages;
 	public List<Portes> ListeDePortes;
+	public final String NomPiece;
 	
 	/**
 	 * constructeur de decor
 	 * un decor est composer d'une liste de personnage et d'une liste de porte
 	 * @param ListeDePersonnages
 	 */
-	public Decors(List<Personnages> ListeDePersonnages) { //?
+	public Decors(List<Personnages> ListeDePersonnages, String nomPiece) { //?
 		this.ListeDePersonnages = ListeDePersonnages;
 		ListeDePortes = new ArrayList<Portes>(); // initilalisation de la liste
+		this.NomPiece = nomPiece;
 		
 	}
 	/**
@@ -44,4 +46,6 @@ public class Decors
 		sum = ListeDePersonnages.size()+ListeDePortes.size();
 		return sum;
 	}
+	
+	
 }
