@@ -1,3 +1,6 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -18,6 +21,7 @@ public class Portes extends JButton
 	{
 		super("Vers "+ decors.NomPiece, new ImageIcon("Image/porte.png"));
 		this.decors = decors;
+		addActionListener(new PorteActionListener(this.decors));
 	}
 
 	/**
@@ -28,5 +32,22 @@ public class Portes extends JButton
 	public Decors obtenirDecors()
 	{
 		return this.decors;
+	}
+	
+	
+	public class PorteActionListener implements ActionListener {
+	
+		
+		private Decors decor;
+		
+		public PorteActionListener(Decors decor){
+			this.decor = decor;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			Application.fenetreDecor.ChangerDecor(decor);
+		}
 	}
 }

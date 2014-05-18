@@ -10,6 +10,8 @@ public class Application
 	/** main du jeu
 	 * @param args
 	 */
+	public static FenetreDecors fenetreDecor;
+	
 	public static void main(String[] args){
 		// demande du nom du joueur:
 		String nomDeDetective = (String)JOptionPane.showInputDialog(null,
@@ -19,6 +21,7 @@ public class Application
         null,
         null,
         "Sherlock Holmes");
+		
 	//affichage du texte d'introduction
 		JOptionPane.showMessageDialog(null,"Allo ? Je suis bien chez le détective "+nomDeDetective+" ?\n Je suis l'epouse du compte de Rochester qui a été assassiné dernièrement.\n "
 				+ "Il est mort tué par un couteau dans sa chambre et la police locale a conclue l’affaire comme étant un accident, suite à une mauvaise manipulation de l’outil.\n "
@@ -27,17 +30,20 @@ public class Application
 	//creation des personnages
 		Personnages alfred = new Personnages( "Alfred", "majordome" ,false);
 		Personnages bernadette = new Personnages( "Bernadette", "Epouse du compte" ,false);
-		Personnages françois = new Personnages( "François", "Fils" ,false);
+		Personnages francois = new Personnages( "François", "Fils" ,false);
 		Personnages agnes = new Personnages( "Agnes", "Belle fille" ,true);
 		Personnages robert = new Personnages( "Robert", "Ami et medecin du compte" ,false);
 		
 	//creation d'un decors ou il y a alfred, ne peut etre changer
-		Decors salleAmanger = new Decors(Arrays.asList(alfred), "Salle a Manger");
+		Decors salleAmanger = new Decors(Arrays.asList(alfred, robert), "Salle a Manger");
 		Decors chambre = new Decors(Arrays.asList(bernadette), "Chambre");
 		salleAmanger.AjouterPortesVers(chambre);
+		Decors salleDeBain = new Decors(Arrays.asList(francois), "Salle De Bain");
+		chambre.AjouterPortesVers(salleDeBain);
+		
 		
 	//creation de la fenetre decors dans la salleAmanger
-		FenetreDecors fenetreDecor= new FenetreDecors(salleAmanger);
+		fenetreDecor= new FenetreDecors(salleAmanger);
 		 
 		
 	}

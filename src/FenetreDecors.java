@@ -10,15 +10,13 @@ import javax.swing.JFrame;
  */
 public class FenetreDecors extends JFrame
 {
-	private Decors decor;
+	
 	/** constructeur de fenetreDecor
 	 * @param decor
 	 */
 	public FenetreDecors(Decors decor) {
-		this.decor=decor;
 		setSize(800, 600);//taille de la fenetre en px
 		this.AfficherDecor(decor);
-		this.setTitle(decor.NomPiece);// rajoute le nom de la salle ou l'on est dans la barre de titre
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);//ferme le jeu lors de l'appuis sur la croix rouge
 		setVisible(true);
 	}
@@ -28,6 +26,8 @@ public class FenetreDecors extends JFrame
 	 * @param decor
 	 */
 	public void AfficherDecor(Decors decor){
+
+		this.setTitle(decor.NomPiece);// rajoute le nom de la salle ou l'on est dans la barre de titre
 		int sum;
 		sum = decor.NombreDobjet();
 		getContentPane().setLayout(new GridLayout(1,sum));//sert a ranger les elements dans la fenetre
@@ -39,6 +39,8 @@ public class FenetreDecors extends JFrame
 		for(Personnages personnages : decor.ListeDePersonnages){
 			AfficherPersonnage(personnages);
 		}
+		this.revalidate();
+		this.repaint();
 	}
 	
 	/**
@@ -56,6 +58,16 @@ public class FenetreDecors extends JFrame
 	 */
 	public void AfficherPersonnage(Personnages personnage){
 		getContentPane().add(personnage);
+	}
+	
+	/**
+	 * permet de changer le decor de la fenetre decor
+	 * @param decor
+	 */
+	public void ChangerDecor(Decors decor){
+		getContentPane().removeAll();//efface le decor existant
+		AfficherDecor(decor);
+		
 	}
 	
 	/** choix du suspect comme assassin 
