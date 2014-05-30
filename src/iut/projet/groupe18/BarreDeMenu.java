@@ -87,7 +87,7 @@ public class BarreDeMenu extends JMenuBar implements ActionListener
 			if (personnageSelectioner.coupable)
 			{
 				JOptionPane.showMessageDialog(null,
-						"Felicitation, vous avez trouvé(e)! On a pu l'arrêter à tend grâce à vous, Merci!");
+						"Felicitation, vous avez trouvé! On a pu l'arrêter à temps grâce à vous, Merci!");
 			}
 			else
 			{

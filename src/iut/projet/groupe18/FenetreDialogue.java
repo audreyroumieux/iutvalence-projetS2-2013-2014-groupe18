@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * represente la fenetre ou l'on peut cliquer sur les différente questions a
@@ -25,7 +26,9 @@ public class FenetreDialogue extends JFrame
 	 */
 	public FenetreDialogue(Personnages personnage)
 	{
-		setSize(600, 600); // taille de la fenetre en px
+		setSize(650, 720); // taille de la fenetre en px
+		setLocation(100, 30);
+		setAlwaysOnTop(true);
 		this.perso = personnage;
 		AfficherPersonnage(personnage);
 		setVisible(true);
@@ -39,11 +42,8 @@ public class FenetreDialogue extends JFrame
 	public void AfficherPersonnage(Personnages personnage)
 	{
 		this.getContentPane().removeAll();
-		int nombreDePhrasesDuPerso = CompterPhrasePosible(personnage);
-		int nombreDeCasesDuLayout = (2 + nombreDePhrasesDuPerso);
-		getContentPane().setLayout(new GridLayout(nombreDeCasesDuLayout, 1));
+		getContentPane().setLayout(new GridLayout(2, 1));
 		getContentPane().add(new JLabel(personnage.imageHorizontale));
-		getContentPane().add(this.reponseDuPersonnage);
 		AfficherTouteLesPhrase(personnage);
 		this.repaint();
 		this.revalidate();
@@ -57,13 +57,18 @@ public class FenetreDialogue extends JFrame
 	 */
 	public void AfficherTouteLesPhrase(Personnages perso)
 	{
+		JPanel panelDesPhrases = new JPanel();
+		int nombreDePhrases = CompterPhrasePosible(perso)+1;
+		panelDesPhrases.setLayout(new GridLayout(nombreDePhrases,1));
+		panelDesPhrases.add(reponseDuPersonnage);
 		for (Phrase phrase : perso.ListePhrases)
 		{
 			if (phrase.peutEtreDite())
 			{
-				AfficherPhrase(phrase);
+				AfficherPhrase(phrase, panelDesPhrases);
 			}
 		}
+		getContentPane().add(panelDesPhrases);
 	}
 
 	/**
@@ -71,7 +76,7 @@ public class FenetreDialogue extends JFrame
 	 * 
 	 * @param phrase
 	 */
-	public void AfficherPhrase(final Phrase phrase)
+	public void AfficherPhrase(final Phrase phrase, JPanel panel)
 	{
 
 		JButton bouton = new JButton(phrase.texte);
@@ -85,7 +90,7 @@ public class FenetreDialogue extends JFrame
 
 			}
 		});
-		getContentPane().add(bouton);
+		panel.add(bouton);
 	}
 
 	public void AfficherReponse(String reponse)

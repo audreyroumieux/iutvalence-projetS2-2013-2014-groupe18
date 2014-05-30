@@ -15,7 +15,7 @@ public class Application
 		public static Personnages madameRochester = new Personnages( "Madame Rochester", "Epouse du compte", false);
 		public static Personnages francois = new Personnages( "François", "le Fils", false);
 		public static Personnages agnes = new Personnages( "Agnes", "la Belle fille", true);
-		public static Personnages robert = new Personnages( "Robert", "un Ami et le medecin du compte", false);
+		public static Personnages robert = new Personnages( "Le docteur Robert", "un Ami et le medecin du compte", false);
 		public static Personnages leBlanc = new Personnages( "Madame Leblanc", "la femme de chambre", false);
 	
 	public static FenetreDecors fenetreDecor;
@@ -40,25 +40,27 @@ public class Application
 		
 		
 	//creation d'un decors ou il y a alfred, ne peut etre changer
-		Decors entrer = new Decors(Arrays.asList(alfred), "Hole d'entrée");
+		Decors entrer = new Decors(Arrays.asList(alfred), "Hall d'entrée");
 		Decors salleAmanger = new Decors(new ArrayList<Personnages>(), "La Salle a Manger");
 		Decors chambrefils = new Decors(new ArrayList<Personnages>(), "La Chambre de Francois et Agnes");
 		Decors salleDeBain = new Decors(Arrays.asList(francois), "La Salle De Bain");
 		Decors cuisine = new Decors(new ArrayList<Personnages>(), "La Cuisine");
 		Decors salon = new Decors(Arrays.asList(madameRochester, robert), "Le Salon");
-		Decors bibliothec = new Decors(new ArrayList<Personnages>(), "La bibliothec");
+		Decors bibliothec = new Decors(new ArrayList<Personnages>(), "La bibliotheque");
 		//Amelioration possible, mini jeu trouver objet a rajouter
-		Decors bureau = new Decors(new ArrayList<Personnages>(), "Le Bureau du Compte");
+		Decors bureau = new Decors(new ArrayList<Personnages>(), "Le Bureau du Comte");
 		Decors chambreCompte = new Decors(Arrays.asList(leBlanc), "La chambre de Monsieur et Madame Rochester");
+		Decors jardin = new Decors(Arrays.asList(agnes), "Le Jardin");
 		
 		entrer.AjouterPortesVers(salleAmanger);
 		salleAmanger.AjouterPortesVers(chambrefils);
 		chambrefils.AjouterPortesVers(salleDeBain);
-		entrer.AjouterPortesVers(cuisine);
+		salleAmanger.AjouterPortesVers(cuisine);
 		entrer.AjouterPortesVers(salon);
 		salon.AjouterPortesVers(bibliothec);
-		entrer.AjouterPortesVers(bureau);
+		bibliothec.AjouterPortesVers(bureau);
 		bureau.AjouterPortesVers(chambreCompte);
+		entrer.AjouterPortesVers(jardin);
 		
 	//creation de la fenetre decors dans la salleAmanger
 		fenetreDecor= new FenetreDecors(entrer);
@@ -169,7 +171,7 @@ public class Application
 				return !Sauvegarde.GetSauvegarde().aAccuserMadame;
 			}
 		};
-		Phrase phraseColaireMadameRochester = new Phrase("Votre époux décédé, j'imagine que vous héritié de toute sa fortune?")
+		Phrase phraseColaireMadameRochester = new Phrase("Votre époux décédé, j'imagine que vous héritiez de toute sa fortune?")
 		{
 			@Override
 			public String getReponse()
@@ -177,7 +179,7 @@ public class Application
 				Sauvegarde.GetSauvegarde().aAccuserMadame = true;
 				return "<html>NON, MAIS COMMENT OSEZ-VOUS?! <br>"
 						+ "PARLER D'ARGENT, ALORS QUE JE VIENS DE PERDRE MON MARI!<br>"
-						+ " PARTEZ, ET NE M'ADRESSEZ PLUS LA PAROLE!</html>" ;
+						+ "PARTEZ, ET NE M'ADRESSEZ PLUS LA PAROLE!</html>" ;
 			}
 			@Override
 			public boolean peutEtreDite()
@@ -226,8 +228,8 @@ public class Application
 			@Override
 			public String getReponse()
 			{
-				return "<html>La veille de l'accident, je me suis levais en plene nuit pour aller à la salle de bain.<br> "
-						+ "Et j'ai crue appersevoir une silouette feminine entrée dans la cuisine! <br>"
+				return "<html>La veille de l'accident, je me suis levé en plene nuit pour aller à la salle de bain.<br> "
+						+ "Et j'ai cru apercevoir une silouette feminine entrer dans la cuisine! <br>"
 						+ " Mais c'est sans doute sans importance!</html>" ;
 			}
 			@Override
@@ -242,7 +244,7 @@ public class Application
 			public String getReponse()
 			{
 				Sauvegarde.GetSauvegarde().presitionNervositer = true;
-				return "Normal, mais mon père était plus nerveux que d’habitude la veille de son décé.";
+				return "Normal, mais mon père était plus nerveux que d’habitude la veille de son décès.";
 			}
 			@Override
 			public boolean peutEtreDite()
@@ -255,7 +257,7 @@ public class Application
 			@Override
 			public String getReponse()
 			{
-				return "Je sais qu’il avait des problèmes avec le personnel, car nous sommes actuelement ruinés et donc nous les payons en retard." ;
+				return "<html>Je sais qu’il avait des problèmes avec le personnel, <br> car nous sommes actuelement ruinés et donc nous les payons en retard.</html>" ;
 			}
 			@Override
 			public boolean peutEtreDite()
@@ -283,7 +285,7 @@ public class Application
 			@Override
 			public String getReponse()
 			{
-				return "Je pense que c'est notre majord'homme. Je sais qu'il a déjà fait de la prison, mais je ne sais pas plus.";
+				return "Je pense que c'est notre majord'homme. Je sais qu'il a déjà fait de la prison, mais je n'en sais pas plus.";
 			}
 		};
 		Phrase phraseHeureDuCrimeRobert = new Phrase("Que faisiez-vous lors du crime ? ")
@@ -291,6 +293,7 @@ public class Application
 			@Override
 			public String getReponse()
 			{
+				Sauvegarde.GetSauvegarde().presitionJardinDocteur = true;
 				return "Je faisais un tour seul dans le jardin.";
 			}
 			@Override
@@ -324,19 +327,18 @@ public class Application
 			@Override
 			public boolean peutEtreDite()
 			{
-				return true;
+				return Sauvegarde.GetSauvegarde().connaitDisputeDocteur;
 			}
 		};
-		Phrase phraseExplicationRobert = new Phrase("Madame la comptesse, nous a dit vous avoir entendu vous disputer avec la victime la veille.<br> Est-vous sur de rien vouloir nous dire?")
+		Phrase phraseExplicationRobert = new Phrase("<html>Madame la comptesse, nous a dit vous avoir entendu vous disputer avec la victime la veille.<br> Est-vous sur de rien vouloir nous dire?</html>")
 		{
 			@Override
 			public String getReponse()
 			{
 				return "<html>Bon d'accord, j'avoue tout!<br>"
-						+ " Il se trouve que monsieur le compte avait decouvert quelque chose qui me compremetais.<br>"
-						+ " Et me faisait chanter avec cela. <br>"
-						+ " On s'était disputer la veille, car il m'avait a nouveau réclamé une somme folle.<br>"
-						+ " Somme que je ne pouvais lui verser.</html>" ;
+						+ " Il se trouve que monsieur le compte avait decouvert quelque chose qui me compremetait.<br>"
+						+ " Et me faisait chanter avec cela. On s'était disputé la veille. <br>"
+						+ "Il m'avait a nouveau réclamé une somme folle que je ne pouvais lui verser.</html>" ;
 			}
 			@Override
 			public boolean peutEtreDite()
@@ -344,7 +346,7 @@ public class Application
 				return Sauvegarde.GetSauvegarde().convaincreDocteurDeParler;
 			}
 		};
-		Phrase phraseVueRobert = new Phrase("Avez vous vue quelqu'un dans le jardin lors de votre sortie? ")
+		Phrase phraseVueRobert = new Phrase("Avez vous vu quelqu'un dans le jardin lors de votre sortie? ")
 		{
 			@Override
 			public String getReponse()
@@ -354,7 +356,7 @@ public class Application
 			@Override
 			public boolean peutEtreDite()
 			{
-				return Sauvegarde.GetSauvegarde().presitionJardinDocteur;
+				return Sauvegarde.GetSauvegarde().presitionJardinDocteur && Sauvegarde.GetSauvegarde().presitionJardinAgnes;
 			}
 		};
 		
@@ -395,17 +397,17 @@ public class Application
 				return true;
 			}
 		};
-		Phrase phraseVueAgnes = new Phrase("Avez-vous vu ou croiser quelqu'un dans le jardin lors de votre sortie? ")
+		Phrase phraseVueAgnes = new Phrase("Avez-vous vu ou croisé quelqu'un dans le jardin lors de votre sortie? ")
 		{
 			@Override
 			public String getReponse()
 			{
-				return "Je n'ai vue personne.";
+				return "Je n'ai vu personne.";
 			}
 			@Override
 			public boolean peutEtreDite()
 			{
-				return !Sauvegarde.GetSauvegarde().presitionJardinAgnes;
+				return Sauvegarde.GetSauvegarde().presitionJardinAgnes && Sauvegarde.GetSauvegarde().presitionJardinDocteur;
 			}
 		};
 		Phrase phraseChoseBizardSelonAgnes = new Phrase("Avez-vous remarqué des choses bizarres ces temps-ci ? ")
@@ -451,8 +453,8 @@ public class Application
 			@Override
 			public String getReponse()
 			{
-				return "<html>Je préparais le dîner dans la cuisine, c'était un plat très compliquer et un sorbet aux framboises.<br>"
-						+ " Je n'ai pas quitté la cuisine de tout l'apres midi, car il faut remuer sans cesse. </html>";
+				return "<html>Je préparais le dîner dans la cuisine, c'était un plat très compliquée et un sorbet aux framboises.<br>"
+						+ "Je n'ai pas quitté la cuisine de tout l'apres midi, car il faut remuer sans cesse. </html>";
 			}
 			@Override
 			public boolean peutEtreDite()
@@ -467,7 +469,7 @@ public class Application
 			{
 				return "<html>Mon couteau de cuisine a disparu pendant la nuit précédent le meurtre de monsieur. <br> "
 						+ "Je suis sure de l'avoir utilisé la veille.<br>"
-						+ " Si j'avais su se qui se passerait, je m'en serais davantage inquitée.</html>" ;
+						+ " Si j'avais su ce qui se passerait, je m'en serais davantage inquitée.</html>" ;
 			}
 			@Override
 			public boolean peutEtreDite()
