@@ -1,4 +1,4 @@
-
+package iut.projet.groupe18;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -17,7 +17,7 @@ public class Decors
 	 * un decor est composer d'une liste de personnage et d'une liste de porte
 	 * @param ListeDePersonnages
 	 */
-	public Decors(List<Personnages> ListeDePersonnages, String nomPiece) { //?
+	public Decors(List<Personnages> ListeDePersonnages, String nomPiece) {
 		this.ListeDePersonnages = ListeDePersonnages;
 		ListeDePortes = new ArrayList<Portes>(); // initilalisation de la liste
 		this.NomPiece = nomPiece;

@@ -1,3 +1,4 @@
+package iut.projet.groupe18;
 /**
  * objet unique permetent de sauvgarder les choix passer du joueur 
  * @author roumieau
@@ -26,7 +27,12 @@ public class Sauvegarde
 /**
  * initialisation des attributs a: false, car le joueur n'a pas encore discuter avec des personnages 
  */
-	public boolean aParlerAalfred = false;
-	public  boolean aParlerAbernadette = false;;
+public boolean aAccuserCusiniaire = false;
+public boolean connaitDisputeDocteur = false;
+public boolean convaincreDocteurDeParler = false;
+public boolean aAccuserMadame = false;
+public boolean presitionJardinDocteur = false;
+public boolean presitionJardinAgnes = false;
+public boolean presitionNervositer = false;
 
 }
