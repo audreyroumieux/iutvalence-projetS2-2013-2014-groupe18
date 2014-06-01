@@ -36,7 +36,6 @@ public class FenetreDialogue extends JFrame
 
 	/**
 	 * affiche le personnage a qui on parle
-	 * 
 	 * @param personnage
 	 */
 	public void AfficherPersonnage(Personnages personnage)
