@@ -17,13 +17,12 @@ import javax.swing.JFrame;
 public class FenetreDecors extends JFrame
 {
 	/**
-	 * fenetre dialogue
+	 * attribut permetent de trouver la fenetre dialogue
 	 */
 	public FenetreDialogue fenetreDialogue;
 
 	/**
-	 * constructeur de fenetreDecor
-	 * 
+	 * constructeur de fenetreDecor 
 	 * @param decor
 	 */
 	public FenetreDecors(Decors decor)
@@ -40,7 +39,6 @@ public class FenetreDecors extends JFrame
 
 	/**
 	 * affiche le decor dans fenetre decor
-	 * 
 	 * @param decor
 	 */
 	public void AfficherDecor(Decors decor)
@@ -72,7 +70,6 @@ public class FenetreDecors extends JFrame
 
 	/**
 	 * affiche la porte et l'image de la porte l'image ne marche pas
-	 * 
 	 * @param porte
 	 */
 	public void AfficherPorte(Portes porte)
@@ -82,7 +79,6 @@ public class FenetreDecors extends JFrame
 
 	/**
 	 * affiche le personnage du decor ou il est appeler
-	 * 
 	 * @param personnage
 	 */
 	public void AfficherPersonnage(final Personnages personnage)
@@ -104,7 +100,6 @@ public class FenetreDecors extends JFrame
 
 	/**
 	 * permet de changer le decor de la fenetre decor
-	 * 
 	 * @param decor
 	 */
 	public void ChangerDecor(Decors decor)

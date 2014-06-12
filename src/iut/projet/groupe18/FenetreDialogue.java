@@ -51,7 +51,6 @@ public class FenetreDialogue extends JFrame
 	/**
 	 * on affiche que les questions que le joueur peut poser en fonction de
 	 * l'historique et de la lite total de phrase
-	 * 
 	 * @return
 	 */
 	public void AfficherTouteLesPhrase(Personnages perso)
@@ -72,7 +71,6 @@ public class FenetreDialogue extends JFrame
 
 	/**
 	 * affiche une phrase
-	 * 
 	 * @param phrase
 	 */
 	public void AfficherPhrase(final Phrase phrase, JPanel panel)
@@ -81,12 +79,10 @@ public class FenetreDialogue extends JFrame
 		JButton bouton = new JButton(phrase.texte);
 		bouton.addActionListener(new ActionListener()
 		{
-
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				AfficherReponse(phrase.getReponse());
-
 			}
 		});
 		panel.add(bouton);

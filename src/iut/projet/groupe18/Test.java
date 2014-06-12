@@ -11,8 +11,19 @@ public class Test extends TestCase
 	
 	//test si la choit du coupable est le bon
 	public void testChoisirSuspect() throws ChoixInvalide{
-		//c'est bisard!!! il faudrait peut etre déplacer la fonction dans une autre classe !!!
-		Application alfredCoupable = new Application();
-		assertEquals(alfredCoupable.choisirSuspect(alfred), true);
+		BarreDeMenu alfredCoupable = new BarreDeMenu(null);
+		assertEquals(alfredCoupable.choisirSuspect(BarreDeMenu.SouMenuAlfred), true);
 	}
+	
+	public void testPorte()throws ChoixInvalide{
+		
+	}
+	
+	public void testPersonnage()throws ChoixInvalide{
+		
+	}
+	public void testPorte()throws ChoixInvalide{
+	
+}
+	
 }
